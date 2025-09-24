@@ -16,7 +16,8 @@ interface Website {
     }[];
 }
 
-export function useWebsites() {
+export default function useWebsites() {
+    
     const { getToken } = useAuth();
     const [websites, setWebsites] = useState<Website[]>([]);
 

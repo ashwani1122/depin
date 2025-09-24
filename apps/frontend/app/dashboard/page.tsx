@@ -9,7 +9,7 @@ import {
   Moon,
   Sun,
 } from "lucide-react";
-import { useWebsites } from "@/hooks/useWebsites";
+import useWebsites from "@/hooks/useWebsites";
 import { useAuth } from "@clerk/nextjs";
 import axios from "axios";
 import { API_BACKEND_URL } from "@/config";
@@ -169,14 +169,10 @@ function App() {
 
   const { websites, refreshWebsites } = useWebsites();
   const { getToken } = useAuth();
-
-  // Toggle dark mode
   useEffect(() => {
     if (isDarkMode) document.documentElement.classList.add("dark");
     else document.documentElement.classList.remove("dark");
   }, [isDarkMode]);
-
-  // Process Websites
   const processedWebsites = useMemo(() => {
     return websites.map((website) => {
       const sortedTicks = [...website.ticks].sort(
