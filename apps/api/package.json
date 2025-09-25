@@ -6,13 +6,16 @@
   "devDependencies": {
     "@types/bun": "latest"
   }
-  ,
+  ,"prisma": {
+    "schema": "../../packages/db/prisma/schema.prisma"
+  },
   "scripts": {
   "dev": "bun index.ts",
   "build": "tsc",
   "start": "bun index.js",
   "postinstall": "prisma generate"
-},
+
+}, 
 
   "peerDependencies": {
     "typescript": "^5"
