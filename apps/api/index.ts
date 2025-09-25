@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express"
 import { authMiddleware } from "./middleware";
 import { prismaClient } from "db/client";
@@ -79,6 +82,9 @@ app.delete("/api/v1/website/", authMiddleware, async (req, res) => {
     })
 })
 
-app.listen(3001 ,()=>{
-    console.log("Server started on port 3001")
+const PORT = process.env.PORT || 3001;
+  console.log(process.env.PORT);
+  console.log(process.env.JWT_PUBLIC_KEY);
+  app.listen(3001 ,()=>{
+    console.log(`Server started on port ${PORT}` )
 });
