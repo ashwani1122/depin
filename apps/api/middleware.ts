@@ -1,3 +1,8 @@
+
+export const config = {
+    runtime: "nodejs",
+};
+
 import type { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { JWT_PUBLIC_KEY } from "./config";
